@@ -1,6 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, { useEffect, useState, useRef } from 'react';
 import {AsyncStorage} from 'react-native';
+import { avatarDB, userData } from '../constants/Databases'
 
 import {
   Image,
@@ -36,13 +37,14 @@ function useInterval(callback, delay) {
 
 
 export default function HomeScreen() {
+
   let animation = useRef(new Animated.Value(0));
   const [progress, setProgress] = useState(0);
    useInterval(() => {
-     if(progress < 70 ) {
-       setProgress(progress + 5);
+     if(progress < userData.cash) {
+       setProgress(progress + 1);
      }
-   }, 100);
+   }, 10);
   useEffect(() => {
      Animated.timing(animation.current, {
        toValue: progress,
@@ -60,9 +62,9 @@ export default function HomeScreen() {
       <View style={{backgroundColor: '#7481FCFF'}}></View>
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View style={styles.profileContainer}>
-        <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
+        <Image source={avatarDB[userData.avatar_picked].pic} style={styles.profileImage}/>
         <View style={styles.right_profile}>
-        <Text style={styles.profileName}>JAYDEN</Text>
+        <Text style={styles.profileName}>{userData.name}</Text>
         <View style={styles.profileProgressBar}>
           <Animated.View style={{position: 'absolute',
             left: 0,
@@ -72,7 +74,7 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
-        <Text>30 till next goal</Text>
+        <Text>{userData.next_goal - userData.cash} till next goal</Text>
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
