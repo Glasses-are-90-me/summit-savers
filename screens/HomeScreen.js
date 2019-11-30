@@ -1,7 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, { useEffect, useState, useRef } from 'react';
 import {AsyncStorage} from 'react-native';
-
+import { withNavigation } from 'react-navigation';
 import {
   Image,
   Platform,
@@ -34,8 +34,16 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-
-export default function HomeScreen() {
+class HomeScreen extends Component {
+  componentDidMount(){
+      // Toggle the state every second
+      setInterval(() => (
+        this.setState(previousState => (
+          { isShowingText: !previousState.isShowingText }
+        ))
+      ), 1000);
+  }
+  state = { isShowingText: true };
   let animation = useRef(new Animated.Value(0));
   const [progress, setProgress] = useState(0);
    useInterval(() => {
