@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 
 export default function LearnScreen() {
   return(
+<<<<<<< HEAD
           >
       <TouchableOpacity>
         </TouchableOpacity>
@@ -32,6 +33,45 @@ export default function LearnScreen() {
           <View
           <Image source={require('../assets/learning-materials/smallthumb2.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View style={[styles.balloon, {backgroundColor: '#1F5595'}]}>
+=======
+    <ScrollView>
+      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+        <Image source={require('../assets/learning-materials/smallthumb1.png')} style={{resizeMode: 'cover', width:325 }}></Image>
+        <View
+          style={[
+            styles.arrowContainer,
+            styles.arrowLeftContainer,
+          ]}
+        >
+          
+          <View style={styles.arrowLeft} />
+        </View>
+        </View>
+
+      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+        <Image source={require('../assets/learning-materials/smallthumb2.png')} style={{resizeMode: 'cover', width:325 }}></Image>
+        <View
+          style={[
+            styles.arrowContainer,
+            styles.arrowLeftContainer,
+          ]}
+        >
+          <View style={styles.arrowLeft} />
+        </View>
+        </View>
+        
+        <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+        <Image source={require('../assets/learning-materials/smallthumb3.png')} style={{resizeMode: 'cover', width:325 }}></Image>
+        <View
+          style={[
+            styles.arrowContainer,
+            styles.arrowLeftContainer,
+          ]}
+        >
+          <View style={styles.arrowLeft} />
+        </View>
+        </View>
+>>>>>>> master
 
     </ScrollView>
   )

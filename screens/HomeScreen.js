@@ -73,6 +73,10 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
+<<<<<<< HEAD
+=======
+        <Text>30 till next goal</Text>
+>>>>>>> master
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -116,7 +120,13 @@ export default function HomeScreen() {
                  top: 0,
                  bottom: 0,
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
+
              </View>
+             <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
+               style={{position: 'absolute',
+                   left: '65%',
+                   top: '-110%',
+                   }}/>
            </View>
            <View style={{flex:5, }}>
             <View style={{
@@ -158,6 +168,21 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: '100%',}}/>
              </View>
            </View>
+           <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+             style={{position: 'absolute',
+                 left: '30%',
+                 top: '14%',
+                 }}/>
+            <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+             style={{position: 'absolute',
+                 left: '64%',
+                 top: '36%',
+                 }}/>
+            <Image source={ require('../assets/characters-and-sprites/shit-hut.png')}
+             style={{position: 'absolute',
+                 left: '5%',
+                 top: '80%',
+                 }}/>
          </View>
       </View>
       </ImageBackground>
