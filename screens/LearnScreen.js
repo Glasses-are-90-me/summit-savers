@@ -4,7 +4,7 @@ import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
 export default function LearnScreen() {
   return(
     <ScrollView>
-      <View style={[styles.balloon, {backgroundColor: '#2F951F'}]}>
+      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
         <Image source={require('../assets/learning-materials/smallthumb1.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
           style={[
@@ -17,7 +17,7 @@ export default function LearnScreen() {
         </View>
         </View>
 
-      <View style={[styles.balloon, {backgroundColor: '#2F951F'}]}>
+      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
         <Image source={require('../assets/learning-materials/smallthumb2.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
           style={[
@@ -29,7 +29,7 @@ export default function LearnScreen() {
         </View>
         </View>
         
-        <View style={[styles.balloon, {backgroundColor: '#2F951F'}]}>
+        <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
         <Image source={require('../assets/learning-materials/smallthumb3.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
           style={[
