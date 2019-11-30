@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import JournalScreen from '../screens/JournalScreen';
+import TasksScreen from '../screens/TasksScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ActivityScreen from '../screens/ActivityScreen';
 import LearnScreen from '../screens/LearnScreen';
@@ -30,21 +30,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const JournalStack = createStackNavigator(
+const TasksStack = createStackNavigator(
   {
-    Journal: JournalScreen,
+    Tasks: TasksScreen,
   },
   config
 );
 
-JournalStack.navigationOptions = {
-  tabBarLabel: 'Journal',
+TasksStack.navigationOptions = {
+  tabBarLabel: 'Tasks',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-journal' : 'md-journal'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-checkbox-outline' : 'md-checkbox-outline'} />
   ),
 };
 
-JournalStack.path = '';
+TasksStack.path = '';
 
 const ProfileStack = createStackNavigator(
   {
@@ -96,7 +96,7 @@ LearnStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  JournalStack,
+  TasksStack,
   ProfileStack,
   ActivityStack,
   LearnStack

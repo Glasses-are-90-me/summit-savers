@@ -12,15 +12,17 @@ import {
   Platform
 } from "react-native";
 import { tsAsExpression } from "@babel/types";
-import { Button } from "react-native-elements";
+import { Button, CheckBox } from "react-native-elements";
+import '@expo/vector-icons';
 
 const isAndroid = Platform.OS == "android";
 const viewPadding = 10;
 
-export default class JournalScreen extends Component {
+export default class TasksScreen extends Component {
   state = {
     tasks: [],
-    text: ""
+    text: "",
+    checked: false,
   };
 
   changeTextHandler = text => {
@@ -92,18 +94,24 @@ export default class JournalScreen extends Component {
         <FlatList
           style={styles.list}
           data={this.state.tasks}
+          keyExtractor = { (item, index) => index.toString() }
           renderItem={({ item, index }) =>
-
             <View>
-              <View style={[styles.balloon, {backgroundColor: '#f6f6f6'}]}>
+              <View style={[styles.balloon, {backgroundColor: '#1F5595'}]}>
                 <Text style={styles.listItem}>
                   {item.text}
                 </Text>
-                <Text style={styles.listItem}>
-                  {item.reward}
-                </Text>
+                <CheckBox
+                  style={{flex: 1, padding: 10}}
+                  onPress={()=>{
+                    this.setState({
+                        isChecked:!this.state.isChecked
+                    })
+                  }}
+                  isChecked={this.state.isChecked}
+                  leftText={"CheckBox"}
+                />
               </View>
-              <Button title="x" color="#07ADDA" onPress={() => this.deleteTask(index)} />
             </View>}
         />
         <View style={{
@@ -116,6 +124,7 @@ export default class JournalScreen extends Component {
             onChangeText={this.changeTextHandler}
             onSubmitEditing={this.addTask}
             value={this.state.text}
+            justifyContent='center'
             placeholder="Add Tasks"
             returnKeyType="done"
             returnKeyLabel="done"
@@ -123,7 +132,7 @@ export default class JournalScreen extends Component {
           <Button
             title="Clear all"
             onPress={() => this.clearTasks()}
-            color="#07ADDA"
+            buttonStyle={{ backgroundColor: "#A8BFCA" }}
           />
         </View>
       </View>
@@ -165,7 +174,9 @@ const styles = StyleSheet.create({
   listItem: {
     paddingTop: 16,
     paddingBottom: 16,
-    fontSize: 22
+    fontSize: 22,
+    color: '#ffffff',
+    borderRadius: 16
   },
   hr: {
     height: 1,
@@ -173,7 +184,11 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    paddingRight: 10,
+    backgroundColor: "#A8BFCA",
+    borderRadius: 16,
+    color: '#ffffff',
+    width: 100,
+    justifyContent: 'center'
   },
   balloon: {
     paddingHorizontal: 15,
@@ -184,11 +199,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     flex: 1,
+    borderRadius: 16
   },  
+  text: {
+    color: "#ffffff"
+  }
+  
 });
 
-JournalScreen.navigationOptions = {
-  title: 'Journal',
+TasksScreen.navigationOptions = {
+  title: 'Tasks',
 };
 
 

@@ -73,10 +73,6 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
-<<<<<<< HEAD
-=======
-        <Text>30 till next goal</Text>
->>>>>>> master
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -236,8 +232,8 @@ const styles = StyleSheet.create({
   },
   
   profileImage: {
-    width: 70,
-    height: 70,
+    width: 90,
+    height: 90,
     marginRight: 20,
   },
   right_profile: {
