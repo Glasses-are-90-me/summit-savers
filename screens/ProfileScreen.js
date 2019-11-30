@@ -72,9 +72,9 @@ export default class ProfileScreen extends Component {
             </View>
 
             <Divider style={styles.divider} />
-            <Text style={styles.balance}>Account Balance: $250</Text>
+            <Text style={styles.balance}>Account Balance: ${userData.cash}</Text>
             <Divider style={styles.divider} />
-            <Text style={styles.goal}>Current Goal: Reach account balance of $300</Text>
+            <Text style={styles.goal}>Current Goal: Reach account balance of ${userData.next_goal}</Text>
             <Divider style={styles.divider} />
 
             <Text style={styles.title}>Achievements</Text>
