@@ -76,6 +76,18 @@ export default function ActivityScreen() {
         </View>
         </View>
 
+      <View style={[styles.balloonRight, {backgroundColor: '#1F5595'}]}>
+        <Text style={{paddingTop: 5, color: 'white', fontSize: 16}}>Requested payment from Mum for washing the dishes</Text>
+        <View
+          style={[
+            styles.arrowContainer,
+            styles.arrowLeftContainer,
+          ]}
+        >
+          <View style={styles.arrowLeft} />
+        </View>
+        </View>
+
     </View>
   )
 }
@@ -108,7 +120,8 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 15,
     borderRadius: 20,
-    marginVertical: 10
+    marginVertical: 10,
+    marginLeft: 40
    },  
   arrowContainer: {
       position: 'absolute',

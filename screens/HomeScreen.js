@@ -63,6 +63,7 @@ export default function HomeScreen() {
         <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
         <View style={styles.right_profile}>
         <Text style={styles.profileName}>JAYDEN</Text>
+        <Text style={styles.level}>Level 13</Text>
         <View style={styles.profileProgressBar}>
           <Animated.View style={{position: 'absolute',
             left: 0,
@@ -72,7 +73,6 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
-        <Text>{100 - `${progress}%`} till next audio</Text>
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -210,19 +210,19 @@ const styles = StyleSheet.create({
   },
   
   profileImage: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     marginRight: 20,
   },
   right_profile: {
     marginTop: 5,
   },
   profileName: {
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 20,
   },
   profileProgressBar: {
      height: 10,
@@ -235,4 +235,7 @@ const styles = StyleSheet.create({
   navigationFilename: {
     marginTop: 5,
   },
+  level: {
+    
+  }
 });

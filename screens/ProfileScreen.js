@@ -23,6 +23,7 @@ export default class ProfileScreen extends Component {
             <View style={styles.headerContent}>
               <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.avatar}/>
               <Text style={styles.name}>JAYDEN</Text>
+              <Text style={styles.level}>Level 13</Text>
               <View style={styles.profileProgressBar}>
                 <Animated.View style={{position: 'absolute',
                   left: 0,
@@ -126,7 +127,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 500,
   },
-
+  level: {
+    fontSize: 16,
+  },
   buttonDivide: {
     marginTop: 15,
   },
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
     marginBottom:10,
   },
   name:{
-    fontSize:26,
+    fontSize:28,
     color:"#000000",
     fontWeight:'600',
   },
