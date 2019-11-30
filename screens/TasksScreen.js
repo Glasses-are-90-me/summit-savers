@@ -34,9 +34,9 @@ export default class TasksScreen extends Component {
     if (notEmpty) {
       this.setState(
         prevState => {
-          let { tasks, text, reward } = prevState;
+          let { tasks, text } = prevState;
           return {
-            tasks: tasks.concat({ key: tasks.length, text: text, reward: reward }),
+            tasks: tasks.concat({ key: tasks.length, text: text }),
             text: ""
           };
         },
@@ -106,8 +106,11 @@ export default class TasksScreen extends Component {
                     this.setState({
                         isChecked:!this.state.isChecked
                     });
+                    this.deleteTask(index);
                     userData.cash = userData.cash + 20;
                   }}
+                  checkedIcon='dot-circle-o'
+                  uncheckedIcon='circle-o'                  
                   isChecked={this.state.isChecked}
                   leftText={"CheckBox"}
                 />
@@ -118,6 +121,7 @@ export default class TasksScreen extends Component {
           flexDirection: 'row',
           justifyContent: 'space-around',
           width: 350,
+          color: "#ffffff"
           }}>
           <TextInput
             style={styles.textInput}
@@ -125,13 +129,15 @@ export default class TasksScreen extends Component {
             onSubmitEditing={this.addTask}
             value={this.state.text}
             placeholder="Add Tasks"
+            placeholderTextColor="#ffffff"
+            textAlign="center"
             returnKeyType="done"
             returnKeyLabel="done"
           />
           <Button
             title="Clear all"
             onPress={() => this.clearTasks()}
-            buttonStyle={{ backgroundColor: "#A8BFCA" }}
+            buttonStyle={{borderRadius: 16, backgroundColor: "#A8BFCA" }}
           />
         </View>
       </View>
@@ -187,7 +193,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     color: '#ffffff',
     width: 100,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    fontSize: 14,
   },
   balloon: {
     paddingHorizontal: 15,

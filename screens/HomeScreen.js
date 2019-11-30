@@ -80,7 +80,7 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
-        <Text>{userData.next_goal - userData.cash} till next goal</Text>
+        <Text>${userData.next_goal - userData.cash} till next goal</Text>
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -180,14 +180,18 @@ export default function HomeScreen() {
            <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
                  left: 135,
-                 top: 113,
+                 top: 127,
                  }}/>
             <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
-                 left: 280,
-                 top: 238,
+                 left: 290,
+                 top: 275,
                  }}/>
-            
+            <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
+             style={{position: 'absolute',
+                 left: 50,
+                 top: 475,
+                 }}/>
          </View>
       </View>
       </ImageBackground>
@@ -222,7 +226,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     position: 'absolute',
-    padding: 10,
+    padding: 2,
     backgroundColor: '#FFFFFFAF',
     // 'width': 130,
     // 'height': 80,
@@ -241,11 +245,11 @@ const styles = StyleSheet.create({
   
   profileImage: {
     width: 90,
-    height: 90,
-    marginRight: 20,
+    height: 110,
   },
   right_profile: {
-    marginTop: 5,
+    marginTop: 0,
+    paddingRight: 7,
   },
   profileName: {
     fontSize: 24,
@@ -265,7 +269,4 @@ const styles = StyleSheet.create({
   navigationFilename: {
     marginTop: 5,
   },
-  level: {
-    
-  }
 });
