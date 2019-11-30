@@ -13,7 +13,6 @@ import {
   StatusBar
 } from 'react-native';
 import { MonoText } from '../components/StyledText';
-
 function useInterval(callback, delay) {
   const savedCallback = useRef();
   // Remember the latest callback.
@@ -55,6 +54,8 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={require('../assets/background/clouds.gif')} style={{flex: 1, resizeMode: 'cover'}}>
+      <View style={{backgroundColor: '#7481FCFF'}}></View>
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View style={styles.profileContainer}>
         <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
@@ -73,8 +74,8 @@ export default function HomeScreen() {
       </View>
       <View style={{display:'flex', height:'100%'}}>
         <View style={{flex:1}}></View>{/*Spacer for mountain*/}
-        <View style={{flex:3, backgroundColor: '#FFF9'}}>
-           <View style={{flex:2, backgroundColor: '#F009'}}>
+        <View style={{flex:3, }}>
+           <View style={{flex:2, }}>
              <View style={{
               transform: [
                 {rotate: '240deg'}
@@ -94,7 +95,7 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
              </View>
            </View>
-           <View style={{flex:3, backgroundColor: '#FF09'}}>
+           <View style={{flex:3}}>
              <View style={{
               transform: [
                 {rotate: '320deg'}
@@ -114,12 +115,31 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
              </View>
            </View>
-           <View style={{flex:5, backgroundColor: '#0F09'}}></View>
-           <View style={{flex:5, backgroundColor: '#00F9'}}></View>
+           <View style={{flex:5, }}></View>
+           <View style={{flex:5, }}>
+            <View style={{
+             transform: [
+               {rotate: '240deg'}
+             ],
+             left: '40%',
+             top: 0,
+             bottom: 0,
+             width: 43,
+             backgroundColor: 'white',
+             borderRadius: 5
+            }}>
+              <Animated.View style={{position: 'absolute',
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                backgroundColor: "#8BED4F", width: widthBAR,}}/>
+            </View>
+           </View>
          </View>
       </View>
       </ImageBackground>
-      
+      </ImageBackground>
     </View>
   );
 }
@@ -145,24 +165,26 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2280EB',
   },
   profileContainer: {
     display: 'flex',
     flexDirection: 'row',
     position: 'absolute',
+    padding: 10,
+    backgroundColor: '#FFFFFFAF',
     // 'width': 130,
     // 'height': 80,
     ...Platform.select({
       ios: {
-        top: 40,
-        left: 20,
+        top: 30,
+        left: 10,
       },
       android: {
-        top: 60,
-        left: 20,
+        top: 50,
+        left: 10,
       },
     }),
+    borderRadius:8,
   },
   
   profileImage: {
