@@ -12,6 +12,7 @@ import {
   Keyboard,
   Platform
 } from "react-native";
+import { tsAsExpression } from "@babel/types";
 
 const isAndroid = Platform.OS == "android";
 const viewPadding = 10;
@@ -32,9 +33,9 @@ export default class JournalScreen extends Component {
     if (notEmpty) {
       this.setState(
         prevState => {
-          let { tasks, text } = prevState;
+          let { tasks, text, reward } = prevState;
           return {
-            tasks: tasks.concat({ key: tasks.length, text: text }),
+            tasks: tasks.concat({ key: tasks.length, text: text, reward: reward }),
             text: ""
           };
         },
@@ -55,6 +56,19 @@ export default class JournalScreen extends Component {
       () => Tasks.save(this.state.tasks)
     );
   };
+
+  clearTasks = () => {
+    this.setState(
+      prevState => {
+        let tasks = prevState.tasks.slice()
+
+        tasks.splice(0, tasks.length);
+
+        return { tasks: tasks };
+      },
+      () => Tasks.save(this.state.tasks)
+    );
+  }
 
   componentDidMount() {
     Keyboard.addListener(
@@ -84,20 +98,34 @@ export default class JournalScreen extends Component {
                 <Text style={styles.listItem}>
                   {item.text}
                 </Text>
-                <Button title="X" onPress={() => this.deleteTask(index)} />
+                <Text style={styles.listItem}>
+                  {item.reward}
+                </Text>
+                <Button title="x" color="#07ADDA" onPress={() => this.deleteTask(index)} />
               </View>
               <View style={styles.hr} />
             </View>}
         />
-        <TextInput
-          style={styles.textInput}
-          onChangeText={this.changeTextHandler}
-          onSubmitEditing={this.addTask}
-          value={this.state.text}
-          placeholder="Add Tasks"
-          returnKeyType="done"
-          returnKeyLabel="done"
-        />
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          width: 350,
+          }}>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={this.changeTextHandler}
+            onSubmitEditing={this.addTask}
+            value={this.state.text}
+            placeholder="Add Tasks"
+            returnKeyType="done"
+            returnKeyLabel="done"
+          />
+          <Button
+            title="Clear all"
+            onPress={() => this.clearTasks()}
+            color="#07ADDA"
+          />
+        </View>
       </View>
     );
   }
@@ -135,13 +163,13 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   listItem: {
-    paddingTop: 2,
-    paddingBottom: 2,
-    fontSize: 18
+    paddingTop: 16,
+    paddingBottom: 16,
+    fontSize: 22
   },
   hr: {
     height: 1,
-    backgroundColor: "gray"
+    backgroundColor: "blue"
   },
   listItemCont: {
     flexDirection: "row",
@@ -151,7 +179,8 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     paddingRight: 10,
-  }
+  },
+  
 });
 
 JournalScreen.navigationOptions = {

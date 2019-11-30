@@ -18,15 +18,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/background/mount3.png')} style={{flex: 1, resizeMode: 'cover'}}>
-      <LinearGradient  colors={['#4c669f', '#3b5998', '#192f6a']}>
       <View>
       <View style={styles.profileContainer}>
-        <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
-        <Text style={styles.profileName}>NAME</Text>
+        <Image source={ require('../assets/images/robot-dev.png') }/>
+        <Text>NAME</Text>
+      </View>
 
       </View>
-      </View>
-      </LinearGradient>
+      
       </ImageBackground>
       
     </View>
