@@ -33,15 +33,39 @@ function useInterval(callback, delay) {
 
 
 export default function HomeScreen() {
+  let animation = useRef(new Animated.Value(0));
+  const [progress, setProgress] = useState(0);
+   useInterval(() => {
+     if(progress < 70 ) {
+       setProgress(progress + 5);
+     }
+   }, 100);
+  useEffect(() => {
+     Animated.timing(animation.current, {
+       toValue: progress,
+       duration: 100
+     }).start();
+   },[progress])
+  const widthBAR = animation.current.interpolate({
+    inputRange: [0, 100],
+    outputRange: ["0%", "100%"],
+    extrapolate: "clamp"
+  })
+
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../assets/background/mount3.png')} style={{flex: 1, resizeMode: 'cover'}}>
+      <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View>
       <View style={styles.profileContainer}>
         <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
-        <Text style={styles.profileName}>NAME</Text>
-
+        <View style={styles.right_profile}>
+        <Text style={styles.profileName}>JAYDEN</Text>
+        <View style={styles.profileProgressBar}></View>
+        <Text>lvl:</Text>
+        </View>
       </View>
+      <View style={{flex:1}}></View>{/*Spacer for mountain*/}
+      <View style={{flex:3, }}></View>{/*Spacer for mountain*/}
       </View>
       </ImageBackground>
       
