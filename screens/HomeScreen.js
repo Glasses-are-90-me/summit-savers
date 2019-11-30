@@ -10,6 +10,7 @@ import {
   View,
   ImageBackground,
   Animated,
+  StatusBar
 } from 'react-native';
 import { MonoText } from '../components/StyledText';
 
@@ -54,22 +55,26 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <StatusBar hidden={true} />
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View>
       <View style={styles.profileContainer}>
         <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
         <View style={styles.right_profile}>
         <Text style={styles.profileName}>JAYDEN</Text>
-        <View style={styles.profileProgressBar}></View>
-        <Text>lvl:</Text>
+        <View style={styles.profileProgressBar}>
+          <Animated.View style={{position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            backgroundColor: "#8BED4F", width: widthBAR}}/>
+        </View>
+        <Text>lvl:{`${progress}%`}</Text>
         </View>
       </View>
       <View style={{flex:1}}></View>{/*Spacer for mountain*/}
-      <View style={{flex:3, borderColor: '#000',
-         borderWidth: 2,
-         borderRadius: 5}}>
-         <Text>Hellllo world</Text>
-       </View>{/*Spacer for mountain*/}
+      <View style={{flex:3}}></View>{/*Spacer for mountain*/}
       </View>
       </ImageBackground>
       
