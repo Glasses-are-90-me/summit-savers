@@ -37,7 +37,6 @@ function useInterval(callback, delay) {
 
 
 export default function HomeScreen() {
-
   let animation = useRef(new Animated.Value(0));
   const [progress, setProgress] = useState(0);
    useInterval(() => {
