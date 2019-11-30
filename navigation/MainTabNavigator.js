@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import JournalScreen from '../screens/JournalScreen';
 import ActivityScreen from '../screens/ActivityScreen';
+import LearnScreen from '../screens/LearnScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -67,10 +68,27 @@ ActivityStack.navigationOptions = {
 
 ActivityStack.path = '';
 
+const LearnStack = createStackNavigator(
+  {
+    Learn: LearnScreen,
+  },
+  config
+);
+
+LearnStack.navigationOptions = {
+  tabBarLabel: 'Learn',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  ),
+};
+
+LearnStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   JournalStack,
   ActivityStack,
+  LearnStack
 });
 
 tabNavigator.path = '';

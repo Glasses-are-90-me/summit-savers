@@ -55,7 +55,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden={true} />
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View>
       <View style={styles.profileContainer}>
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
         left: 20,
       },
       android: {
-        top: 40,
+        top: 60,
         left: 20,
       },
     }),
