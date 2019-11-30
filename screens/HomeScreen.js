@@ -65,7 +65,11 @@ export default function HomeScreen() {
         </View>
       </View>
       <View style={{flex:1}}></View>{/*Spacer for mountain*/}
-      <View style={{flex:3, }}></View>{/*Spacer for mountain*/}
+      <View style={{flex:3, borderColor: '#000',
+         borderWidth: 2,
+         borderRadius: 5}}>
+         <Text>Hellllo world</Text>
+       </View>{/*Spacer for mountain*/}
       </View>
       </ImageBackground>
       
