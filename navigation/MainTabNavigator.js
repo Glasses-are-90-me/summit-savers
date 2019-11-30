@@ -23,14 +23,7 @@ const HomeStack = createStackNavigator(
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-snow' : 'md-snow'} />
   ),
 };
 
@@ -46,7 +39,7 @@ const JournalStack = createStackNavigator(
 JournalStack.navigationOptions = {
   tabBarLabel: 'Journal',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-journal' : 'md-journal'} />
   ),
 };
 
@@ -62,7 +55,7 @@ const ActivityStack = createStackNavigator(
 ActivityStack.navigationOptions = {
   tabBarLabel: 'Activity',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-apps' : 'md-apps'} />
   ),
 };
 
@@ -78,7 +71,7 @@ const LearnStack = createStackNavigator(
 LearnStack.navigationOptions = {
   tabBarLabel: 'Learn',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-book' : 'md-book'} />
   ),
 };
 
