@@ -122,10 +122,15 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
 
              </View>
-             <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
+             <Image source={ require('../assets/characters-and-sprites/redflag.png')}
                style={{position: 'absolute',
-                   left: '65%',
-                   top: '-110%',
+                   left: 20,
+                   top: -160,
+                   }}/>
+             <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+               style={{position: 'absolute',
+                   left: 70,
+                   top: -72,
                    }}/>
            </View>
            <View style={{flex:5, width:0}}>
@@ -168,20 +173,20 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: '100%',}}/>
              </View>
            </View>
-           <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+           <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
-                 left: '30%',
-                 top: '14%',
+                 left: 135,
+                 top: 113,
                  }}/>
-            <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+            <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
-                 left: '64%',
-                 top: '36%',
+                 left: 280,
+                 top: 238,
                  }}/>
             <Image source={ require('../assets/characters-and-sprites/shit-hut.png')}
              style={{position: 'absolute',
-                 left: '5%',
-                 top: '80%',
+                 left: 10,
+                 top: 420,
                  }}/>
          </View>
       </View>
