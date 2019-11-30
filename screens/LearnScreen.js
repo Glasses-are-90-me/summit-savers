@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
 
 export default function LearnScreen() {
   return(
-    <View>
+    <ScrollView>
       <View style={[styles.balloon, {backgroundColor: '#2F951F'}]}>
         <Image source={require('../assets/learning-materials/smallthumb1.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
@@ -28,8 +28,20 @@ export default function LearnScreen() {
           <View style={styles.arrowLeft} />
         </View>
         </View>
+        
+        <View style={[styles.balloon, {backgroundColor: '#2F951F'}]}>
+        <Image source={require('../assets/learning-materials/smallthumb3.png')} style={{resizeMode: 'cover', width:325 }}></Image>
+        <View
+          style={[
+            styles.arrowContainer,
+            styles.arrowLeftContainer,
+          ]}
+        >
+          <View style={styles.arrowLeft} />
+        </View>
+        </View>
 
-    </View>
+    </ScrollView>
   )
 }
 
