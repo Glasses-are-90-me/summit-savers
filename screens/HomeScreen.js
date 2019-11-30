@@ -56,8 +56,16 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     position: 'absolute',
-    top: 0,
-    left: 0,
+    ...Platform.select({
+      ios: {
+        top: 40,
+        left: 20,
+      },
+      android: {
+        top: 40,
+        left: 20,
+      },
+    }),
   },
   contentContainer: {
     paddingTop: 30,
