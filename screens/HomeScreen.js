@@ -89,7 +89,7 @@ export default function HomeScreen() {
               ],
               height: 10,
               left: 15,
-              top: 40,
+              top: '40%',
               width: 100,
               backgroundColor: 'white',
               borderRadius: 5
@@ -183,11 +183,7 @@ export default function HomeScreen() {
                  left: 280,
                  top: 238,
                  }}/>
-            <Image source={ require('../assets/characters-and-sprites/shit-hut.png')}
-             style={{position: 'absolute',
-                 left: 10,
-                 top: 420,
-                 }}/>
+            
          </View>
       </View>
       </ImageBackground>
