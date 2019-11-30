@@ -1,23 +1,37 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
+import { ScrollView, View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import {
+  Button,
+  Divider
+} from 'react-native-elements';
+
 
 export default function LearnScreen() {
   return(
     <ScrollView>
-      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+      <TouchableOpacity>
+      <View style={[styles.balloon, {backgroundColor: '#004080'}]}>
+        
         <Image source={require('../assets/learning-materials/smallthumb1.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
+        
           style={[
             styles.arrowContainer,
             styles.arrowLeftContainer,
+            
+
+            
           ]}
         >
           
           <View style={styles.arrowLeft} />
+        
+        </View>       
         </View>
-        </View>
+        </TouchableOpacity>
 
-      <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+        <TouchableOpacity>
+      <View style={[styles.balloon, {backgroundColor: '#004080'}]}>
         <Image source={require('../assets/learning-materials/smallthumb2.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
           style={[
@@ -28,8 +42,10 @@ export default function LearnScreen() {
           <View style={styles.arrowLeft} />
         </View>
         </View>
-        
-        <View style={[styles.balloon, {backgroundColor: '#ffc04d'}]}>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <View style={[styles.balloon, {backgroundColor: '#004080'}]}>
         <Image source={require('../assets/learning-materials/smallthumb3.png')} style={{resizeMode: 'cover', width:325 }}></Image>
         <View
           style={[
@@ -40,7 +56,7 @@ export default function LearnScreen() {
           <View style={styles.arrowLeft} />
         </View>
         </View>
-
+        </TouchableOpacity>
     </ScrollView>
   )
 }
@@ -106,4 +122,3 @@ const styles = StyleSheet.create({
 LearnScreen.navigationOptions = {
   title: 'Learn',
 };
-
