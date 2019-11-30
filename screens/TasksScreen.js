@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   AppRegistry,
@@ -7,18 +6,14 @@ import {
   View,
   FlatList,
   AsyncStorage,
-  Button,
   TextInput,
   Keyboard,
   Platform
 } from "react-native";
 import { tsAsExpression } from "@babel/types";
-<<<<<<< HEAD:screens/TasksScreen.js
 import { Button, CheckBox } from "react-native-elements";
 import '@expo/vector-icons';
-=======
->>>>>>> master:screens/JournalScreen.js
-
+import { avatarDB, userData } from '../constants/Databases';
 const isAndroid = Platform.OS == "android";
 const viewPadding = 10;
 
@@ -101,7 +96,6 @@ export default class TasksScreen extends Component {
           keyExtractor = { (item, index) => index.toString() }
           renderItem={({ item, index }) =>
             <View>
-<<<<<<< HEAD:screens/TasksScreen.js
               <View style={[styles.balloon, {backgroundColor: '#1F5595'}]}>
                 <Text style={styles.listItem}>
                   {item.text}
@@ -111,24 +105,13 @@ export default class TasksScreen extends Component {
                   onPress={()=>{
                     this.setState({
                         isChecked:!this.state.isChecked
-                    })
+                    });
+                    userData.cash = userData.cash + 20;
                   }}
                   isChecked={this.state.isChecked}
                   leftText={"CheckBox"}
                 />
               </View>
-=======
-              <View style={styles.listItemCont}>
-                <Text style={styles.listItem}>
-                  {item.text}
-                </Text>
-                <Text style={styles.listItem}>
-                  {item.reward}
-                </Text>
-                <Button title="x" color="#07ADDA" onPress={() => this.deleteTask(index)} />
-              </View>
-              <View style={styles.hr} />
->>>>>>> master:screens/JournalScreen.js
             </View>}
         />
         <View style={{
@@ -141,7 +124,6 @@ export default class TasksScreen extends Component {
             onChangeText={this.changeTextHandler}
             onSubmitEditing={this.addTask}
             value={this.state.text}
-            justifyContent='center'
             placeholder="Add Tasks"
             returnKeyType="done"
             returnKeyLabel="done"
@@ -181,7 +163,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#D9F7FF",
+    backgroundColor: "#ffffff",
     padding: viewPadding,
     paddingTop: 20
   },
@@ -199,11 +181,6 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "blue"
   },
-  listItemCont: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
   textInput: {
     height: 40,
     backgroundColor: "#A8BFCA",
@@ -212,7 +189,6 @@ const styles = StyleSheet.create({
     width: 100,
     justifyContent: 'center'
   },
-<<<<<<< HEAD:screens/TasksScreen.js
   balloon: {
     paddingHorizontal: 15,
     marginVertical: 10,
@@ -227,8 +203,6 @@ const styles = StyleSheet.create({
   text: {
     color: "#ffffff"
   }
-=======
->>>>>>> master:screens/JournalScreen.js
   
 });
 

@@ -28,14 +28,9 @@ export default class ProfileScreen extends Component {
         <View>
           <View style={styles.header}>
             <View style={styles.headerContent}>
-<<<<<<< HEAD
-              <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.avatar}/>
-              <Text style={styles.name}>JAYDEN</Text>
-              <Text style={styles.level}>Level 13</Text>
-=======
               <Image source={avatarDB[userData.avatar_picked].pic} style={styles.avatar}/>
               <Text style={styles.name}>{userData.name}</Text>
->>>>>>> master
+              <Text style={styles.level}>Level 13</Text>
               <View style={styles.profileProgressBar}>
                 <Animated.View style={{position: 'absolute',
                   left: 0,
@@ -185,7 +180,6 @@ const styles = StyleSheet.create({
     borderRadius: 63,
     borderWidth: 1,
     borderColor: "#F6F6F6",
-    marginBottom:10,
   },
   name:{
     fontSize:28,

@@ -69,12 +69,8 @@ export default function HomeScreen() {
       <View style={styles.profileContainer}>
         <Image source={avatarDB[userData.avatar_picked].pic} style={styles.profileImage}/>
         <View style={styles.right_profile}>
-<<<<<<< HEAD
-        <Text style={styles.profileName}>JAYDEN</Text>
-        <Text style={styles.level}>Level 13</Text>
-=======
         <Text style={styles.profileName}>{userData.name}</Text>
->>>>>>> master
+         <Text style={styles.level}>Level 13</Text>
         <View style={styles.profileProgressBar}>
           <Animated.View style={{position: 'absolute',
             left: 0,
@@ -84,10 +80,7 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
-<<<<<<< HEAD
-=======
         <Text>{userData.next_goal - userData.cash} till next goal</Text>
->>>>>>> master
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>

@@ -44,7 +44,7 @@ export var userData = (
   {
     avatar_picked: 2,
     name: 'Jayden',
-    cash: 250,
-    next_goal: 300,
+    cash: 20,
+    next_goal: 100,
   }
 );
