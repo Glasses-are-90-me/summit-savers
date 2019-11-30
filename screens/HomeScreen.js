@@ -13,6 +13,7 @@ import {
   StatusBar
 } from 'react-native';
 import { MonoText } from '../components/StyledText';
+
 function useInterval(callback, delay) {
   const savedCallback = useRef();
   // Remember the latest callback.

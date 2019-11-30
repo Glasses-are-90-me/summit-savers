@@ -5,6 +5,9 @@ import {
   View,
   Image,
   SafeAreaView,
+  Animated,
+  Dimensions,
+  TouchableOpacity
 } from 'react-native';
 import {
   Button,
@@ -12,8 +15,8 @@ import {
 } from 'react-native-elements';
 
 export default class ProfileScreen extends Component {
-
   render() {
+
     return (
       <SafeAreaView>
         <View>
@@ -21,6 +24,14 @@ export default class ProfileScreen extends Component {
             <View style={styles.headerContent}>
               <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.avatar}/>
               <Text style={styles.name}>JAYDEN</Text>
+              <View style={styles.profileProgressBar}>
+                <Animated.View style={{position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  backgroundColor: "#8BED4F", width: '70%'}}/>
+              </View>
               <Text style={styles.userInfo}>Progress: 70%</Text>
             </View>
           </View>
@@ -28,16 +39,79 @@ export default class ProfileScreen extends Component {
 
         <View>
           <View style={styles.body}>
-            <View alignItems="center">
+            <View style={styles.buttonDivide} alignItems="center">
               <Button 
                 style={styles.button}
+                color="#90A4AE"
                 raised={true}
                 title="Choose avatar" />
             </View>
+
             <Divider style={styles.divider} />
+            <Text style={styles.balance}>Account Balance: $250</Text>
+            <Divider style={styles.divider} />
+            <Text style={styles.goal}>Current Goal: Reach account balance of $300</Text>
+            <Divider style={styles.divider} />
+
             <Text style={styles.title}>Achievements</Text>
-          </View>
-          <View style={styles.title}>
+            <View style={styles.circles}>
+              <TouchableOpacity
+                style = {{
+                  borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+                  marginTop: 10,
+                  marginLeft: 10,
+                  width: Dimensions.get('window').width * 0.2,
+                  height: Dimensions.get('window').width * 0.2,
+                  backgroundColor:'#ffffff',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Image style={{width:45, height:45}} source={require('../assets/images/icons8-star-80.png')}/>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style = {{
+                  borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+                  marginTop: 10,
+                  marginLeft: 10,
+                  width: Dimensions.get('window').width * 0.2,
+                  height: Dimensions.get('window').width * 0.2,
+                  backgroundColor:'#ffffff',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Image style={{width:65, height:65}} source={require('../assets/images/icons8-money-bag-100.png')}/>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style = {{
+                  borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+                  marginTop: 10,
+                  marginLeft: 10,
+                  width: Dimensions.get('window').width * 0.2,
+                  height: Dimensions.get('window').width * 0.2,
+                  backgroundColor:'#ffffff',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Image style={{width:65, height:65}} source={require('../assets/images/icons8-money-box-96.png')}/>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style = {{
+                  borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+                  marginTop: 10,
+                  marginLeft: 10,
+                  width: Dimensions.get('window').width * 0.2,
+                  height: Dimensions.get('window').width * 0.2,
+                  backgroundColor:'#ffffff',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                 <Image style={{width:65, height:65}} source={require('../assets/images/icons8-penguin-96.png')}/>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </SafeAreaView>
@@ -52,12 +126,30 @@ const styles = StyleSheet.create({
     paddingTop: 500,
   },
 
+  buttonDivide: {
+    marginTop: 15,
+  },
+
   header: {
     backgroundColor: "#F6F6F6",
   },
   headerContent:{
     padding:30,
     alignItems: 'center',
+  },
+  balance: {
+    fontSize: 20,
+    alignSelf: "flex-start",
+    marginLeft: 20,
+    fontWeight: '600',
+    color: '#ffffff'
+  },
+  goal: {
+    fontSize: 16,
+    alignSelf: 'flex-start',
+    marginLeft: 20,
+    fontWeight: '500',
+    color: '#ffffff'
   },
   avatar: {
     width: 200,
@@ -68,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom:10,
   },
   name:{
-    fontSize:22,
+    fontSize:26,
     color:"#000000",
     fontWeight:'600',
   },
@@ -80,7 +172,8 @@ const styles = StyleSheet.create({
   body:{
     backgroundColor: "#68A6F0",
     height:500,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
+    borderRadius: 20
   },
   item:{
     flexDirection : 'row',
@@ -114,15 +207,29 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color:"#000000",
+    color:"#ffffff",
     fontWeight:'600',
     alignSelf: "flex-start",
+    marginLeft: 20,
   },
   divider: {
     backgroundColor: '#ffffff',
     width: '100%',
-    marginVertical: 20,
-  }
+    marginVertical: 15,
+  },
+  profileProgressBar: {
+    height: 10,
+    width: '100%',
+    backgroundColor: 'white',
+    borderColor: '#000',
+    borderWidth: 2,
+    borderRadius: 5
+  },
+  circles: {
+    flexDirection: 'row',
+    marginHorizontal: 10,
+    alignItems: "center"
+  },
 });
 
 ProfileScreen.navigationOptions = {
