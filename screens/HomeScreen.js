@@ -16,7 +16,7 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
+      <ImageBackground source={require('../assets/background/mount3.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View>
       <View style={styles.profileContainer}>
         <Image source={ require('../assets/images/robot-dev.png') }/>
