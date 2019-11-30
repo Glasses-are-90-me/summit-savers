@@ -5,6 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import JournalScreen from '../screens/JournalScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import ActivityScreen from '../screens/ActivityScreen';
 import LearnScreen from '../screens/LearnScreen';
 
@@ -45,6 +46,22 @@ JournalStack.navigationOptions = {
 
 JournalStack.path = '';
 
+const ProfileStack = createStackNavigator(
+  {
+    Profile: ProfileScreen,
+  },
+  config
+);
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'} />
+  ),
+};
+
+ProfileStack.path = '';
+
 const ActivityStack = createStackNavigator(
   {
     Activity: ActivityScreen,
@@ -80,6 +97,7 @@ LearnStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   JournalStack,
+  ProfileStack,
   ActivityStack,
   LearnStack
 });

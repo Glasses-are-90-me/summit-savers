@@ -69,7 +69,7 @@ export default function HomeScreen() {
             bottom: 0,
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
-        <Text>lvl:{`${progress}%`}</Text>
+        <Text>Progress:{`${progress}%`}</Text>
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
         left: 10,
       },
       android: {
-        top: 50,
+        top: 60,
         left: 10,
       },
     }),
@@ -188,8 +188,8 @@ const styles = StyleSheet.create({
   },
   
   profileImage: {
-    'width': 80,
-    'height': 80,
+    width: 80,
+    height: 80,
     marginRight: 20,
   },
   right_profile: {

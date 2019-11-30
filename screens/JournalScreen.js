@@ -7,12 +7,12 @@ import {
   View,
   FlatList,
   AsyncStorage,
-  Button,
   TextInput,
   Keyboard,
   Platform
 } from "react-native";
 import { tsAsExpression } from "@babel/types";
+import { Button } from "react-native-elements";
 
 const isAndroid = Platform.OS == "android";
 const viewPadding = 10;
@@ -93,17 +93,17 @@ export default class JournalScreen extends Component {
           style={styles.list}
           data={this.state.tasks}
           renderItem={({ item, index }) =>
+
             <View>
-              <View style={styles.listItemCont}>
+              <View style={[styles.balloon, {backgroundColor: '#f6f6f6'}]}>
                 <Text style={styles.listItem}>
                   {item.text}
                 </Text>
                 <Text style={styles.listItem}>
                   {item.reward}
                 </Text>
-                <Button title="x" color="#07ADDA" onPress={() => this.deleteTask(index)} />
               </View>
-              <View style={styles.hr} />
+              <Button title="x" color="#07ADDA" onPress={() => this.deleteTask(index)} />
             </View>}
         />
         <View style={{
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#D9F7FF",
+    backgroundColor: "#ffffff",
     padding: viewPadding,
     paddingTop: 20
   },
@@ -171,16 +171,20 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "blue"
   },
-  listItemCont: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
   textInput: {
     height: 40,
     paddingRight: 10,
   },
-  
+  balloon: {
+    paddingHorizontal: 15,
+    marginVertical: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flex: 1,
+  },  
 });
 
 JournalScreen.navigationOptions = {

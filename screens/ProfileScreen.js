@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   body:{
     backgroundColor: "#68A6F0",
     height:500,
+    marginHorizontal: 20,
   },
   item:{
     flexDirection : 'row',
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: '#ffffff',
     width: '100%',
-    margin: 20,
+    marginVertical: 20,
   }
 });
 
