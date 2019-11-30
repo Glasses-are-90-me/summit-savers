@@ -1,7 +1,9 @@
 import * as WebBrowser from 'expo-web-browser';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Component } from 'react';
 import {AsyncStorage} from 'react-native';
-import { avatarDB, userData } from '../constants/Databases'
+import { avatarDB, userData } from '../constants/Databases';
+import { withNavigationFocus } from 'react-navigation';
+
 
 import {
   Image,
@@ -34,11 +36,15 @@ function useInterval(callback, delay) {
     }
   }, [delay]);
 }
-
-
 export default function HomeScreen() {
+  // Toggle the state every second
+  const [count, setCounter] = useState(1);
+  setInterval(() => (
+    setCounter(userData.avatar_picked)
+  ), 5000);
   let animation = useRef(new Animated.Value(0));
   const [progress, setProgress] = useState(0);
+
    useInterval(() => {
      if(progress < userData.cash) {
        setProgress(progress + 1);
