@@ -9,22 +9,24 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
+  Animated,
 } from 'react-native';
-
+import { LinearGradient } from 'expo-linear-gradient'
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/background/mount3.png')} style={{flex: 1, resizeMode: 'cover'}}>
+      <LinearGradient  colors={['#4c669f', '#3b5998', '#192f6a']}>
       <View>
       <View style={styles.profileContainer}>
-        <Image source={ require('../assets/images/robot-dev.png') }/>
-        <Text>NAME</Text>
-      </View>
+        <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
+        <Text style={styles.profileName}>NAME</Text>
 
       </View>
-      
+      </View>
+      </LinearGradient>
       </ImageBackground>
       
     </View>
@@ -55,7 +57,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#2280EB',
   },
   profileContainer: {
+    display: 'flex',
+    flexDirection: 'row',
     position: 'absolute',
+    // 'width': 130,
+    // 'height': 80,
     ...Platform.select({
       ios: {
         top: 40,
@@ -66,6 +72,18 @@ const styles = StyleSheet.create({
         left: 20,
       },
     }),
+  },
+  profileImage: {
+    'width': 80,
+    'height': 80,
+    marginRight: 20,
+  },
+  profileName: {
+    'flex': 2,
+    fontFamily: 'monospace',
+    fontSize: 25,
+    marginTop: 5,
+    fontWeight: 'bold',
   },
   contentContainer: {
     paddingTop: 30,
