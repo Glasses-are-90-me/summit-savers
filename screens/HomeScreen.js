@@ -1,5 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, { useEffect, useState, useRef } from 'react';
+import {AsyncStorage} from 'react-native';
+
 import {
   Image,
   Platform,
@@ -46,13 +48,12 @@ export default function HomeScreen() {
        toValue: progress,
        duration: 100
      }).start();
-   },[progress])
+   },[progress]);
   const widthBAR = animation.current.interpolate({
     inputRange: [0, 100],
     outputRange: ["0%", "100%"],
     extrapolate: "clamp"
-  })
-
+  });
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/background/clouds.gif')} style={{flex: 1, resizeMode: 'cover'}}>
@@ -71,6 +72,7 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
+        <Text>{100 - `${progress}%`} till next audio</Text>
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>
@@ -93,7 +95,7 @@ export default function HomeScreen() {
                  right: 0,
                  top: 0,
                  bottom: 0,
-                 backgroundColor: "#8BED4F", width: widthBAR,}}/>
+                 backgroundColor: "#8BED4F", width: 0,}}/>
              </View>
            </View>
            <View style={{flex:3}}>
@@ -116,26 +118,45 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
              </View>
            </View>
-           <View style={{flex:5, }}></View>
            <View style={{flex:5, }}>
             <View style={{
-             transform: [
-               {rotate: '240deg'}
-             ],
-             left: '40%',
-             top: 0,
-             bottom: 0,
-             width: 43,
-             backgroundColor: 'white',
-             borderRadius: 5
-            }}>
-              <Animated.View style={{position: 'absolute',
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                backgroundColor: "#8BED4F", width: widthBAR,}}/>
-            </View>
+              transform: [
+                {rotate: '220deg'}
+              ],
+              height: 10,
+              left: '28%',
+              width: '50%',
+              top: '34%',
+              backgroundColor: 'white',
+              borderRadius: 5
+             }}>
+               <Animated.View style={{position: 'absolute',
+                 left: 0,
+                 right: 0,
+                 top: 0,
+                 bottom: 0,
+                 backgroundColor: "#8BED4F", width: '100%',}}/>
+             </View>
+           </View>
+           <View style={{flex:5, }}>
+            <View style={{
+              transform: [
+                {rotate: '320deg'}
+              ],
+              height: 10,
+              left: '6%',
+              width: '75%',
+              top: '18%',
+              backgroundColor: 'white',
+              borderRadius: 5
+             }}>
+               <Animated.View style={{position: 'absolute',
+                 left: 0,
+                 right: 0,
+                 top: 0,
+                 bottom: 0,
+                 backgroundColor: "#8BED4F", width: '100%',}}/>
+             </View>
            </View>
          </View>
       </View>
