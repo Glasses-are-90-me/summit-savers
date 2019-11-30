@@ -43,8 +43,8 @@ export var avatarDB = ([
 export var userData = (
   {
     avatar_picked: 2,
-    name: 'Jayden Lee',
-    cash: 95,
-    next_goal: 100,
+    name: 'Jayden',
+    cash: 250,
+    next_goal: 300,
   }
 );
