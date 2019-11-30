@@ -57,7 +57,6 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <StatusBar hidden={true} />
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
-      <View>
       <View style={styles.profileContainer}>
         <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
         <View style={styles.right_profile}>
@@ -68,13 +67,57 @@ export default function HomeScreen() {
             right: 0,
             top: 0,
             bottom: 0,
-            backgroundColor: "#8BED4F", width: widthBAR}}/>
+            backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>lvl:{`${progress}%`}</Text>
         </View>
       </View>
-      <View style={{flex:1}}></View>{/*Spacer for mountain*/}
-      <View style={{flex:3}}></View>{/*Spacer for mountain*/}
+      <View style={{display:'flex', height:'100%'}}>
+        <View style={{flex:1}}></View>{/*Spacer for mountain*/}
+        <View style={{flex:3, backgroundColor: '#FFF9'}}>
+           <View style={{flex:2, backgroundColor: '#F009'}}>
+             <View style={{
+              transform: [
+                {rotate: '240deg'}
+              ],
+              height: 10,
+              left: '52%',
+              top: '35%',
+              width: '26%',
+              backgroundColor: 'white',
+              borderRadius: 5
+             }}>
+               <Animated.View style={{position: 'absolute',
+                 left: 0,
+                 right: 0,
+                 top: 0,
+                 bottom: 0,
+                 backgroundColor: "#8BED4F", width: widthBAR,}}/>
+             </View>
+           </View>
+           <View style={{flex:3, backgroundColor: '#FF09'}}>
+             <View style={{
+              transform: [
+                {rotate: '320deg'}
+              ],
+              height: 10,
+              left: '29%',
+              top: '44%',
+              width: '48%',
+              backgroundColor: 'white',
+              borderRadius: 5
+             }}>
+               <Animated.View style={{position: 'absolute',
+                 left: 0,
+                 right: 0,
+                 top: 0,
+                 bottom: 0,
+                 backgroundColor: "#8BED4F", width: widthBAR,}}/>
+             </View>
+           </View>
+           <View style={{flex:5, backgroundColor: '#0F09'}}></View>
+           <View style={{flex:5, backgroundColor: '#00F9'}}></View>
+         </View>
       </View>
       </ImageBackground>
       
