@@ -5,7 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import JournalScreen from '../screens/JournalScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import ActivityScreen from '../screens/ActivityScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -51,26 +51,26 @@ JournalStack.navigationOptions = {
 
 JournalStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const ActivityStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Activity: ActivityScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+ActivityStack.navigationOptions = {
+  tabBarLabel: 'Activity',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+ActivityStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   JournalStack,
-  SettingsStack,
+  ActivityStack,
 });
 
 tabNavigator.path = '';

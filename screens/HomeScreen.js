@@ -43,7 +43,6 @@ export default function HomeScreen() {
 
       </View>
       </View>
-      </LinearGradient>
       </ImageBackground>
       
     </View>
