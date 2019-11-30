@@ -1,6 +1,9 @@
 import * as WebBrowser from 'expo-web-browser';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Component } from 'react';
 import {AsyncStorage} from 'react-native';
+import { avatarDB, userData } from '../constants/Databases';
+import { withNavigationFocus } from 'react-navigation';
+
 
 import {
   Image,
@@ -33,16 +36,20 @@ function useInterval(callback, delay) {
     }
   }, [delay]);
 }
-
-
 export default function HomeScreen() {
+  // Toggle the state every second
+  const [count, setCounter] = useState(1);
+  setInterval(() => (
+    setCounter(userData.avatar_picked)
+  ), 5000);
   let animation = useRef(new Animated.Value(0));
   const [progress, setProgress] = useState(0);
+
    useInterval(() => {
-     if(progress < 70 ) {
-       setProgress(progress + 5);
+     if(progress < userData.cash) {
+       setProgress(progress + 1);
      }
-   }, 100);
+   }, 10);
   useEffect(() => {
      Animated.timing(animation.current, {
        toValue: progress,
@@ -60,10 +67,14 @@ export default function HomeScreen() {
       <View style={{backgroundColor: '#7481FCFF'}}></View>
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View style={styles.profileContainer}>
-        <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.profileImage}/>
+        <Image source={avatarDB[userData.avatar_picked].pic} style={styles.profileImage}/>
         <View style={styles.right_profile}>
+<<<<<<< HEAD
         <Text style={styles.profileName}>JAYDEN</Text>
         <Text style={styles.level}>Level 13</Text>
+=======
+        <Text style={styles.profileName}>{userData.name}</Text>
+>>>>>>> master
         <View style={styles.profileProgressBar}>
           <Animated.View style={{position: 'absolute',
             left: 0,
@@ -73,6 +84,10 @@ export default function HomeScreen() {
             backgroundColor: "#8BED4F", width: widthBAR,}}/>
         </View>
         <Text>Progress:{`${progress}%`}</Text>
+<<<<<<< HEAD
+=======
+        <Text>{userData.next_goal - userData.cash} till next goal</Text>
+>>>>>>> master
         </View>
       </View>
       <View style={{display:'flex', height:'100%'}}>

@@ -13,17 +13,29 @@ import {
   Button,
   Divider
 } from 'react-native-elements';
+import { avatarDB, userData } from '../constants/Databases'
 
 export default class ProfileScreen extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      user_profile: userData.avatar_picked,
+    }
+  }
   render() {
     return (
       <ScrollView>
         <View>
           <View style={styles.header}>
             <View style={styles.headerContent}>
+<<<<<<< HEAD
               <Image source={ require('../assets/characters-and-sprites/eskimo_black.png') } style={styles.avatar}/>
               <Text style={styles.name}>JAYDEN</Text>
               <Text style={styles.level}>Level 13</Text>
+=======
+              <Image source={avatarDB[userData.avatar_picked].pic} style={styles.avatar}/>
+              <Text style={styles.name}>{userData.name}</Text>
+>>>>>>> master
               <View style={styles.profileProgressBar}>
                 <Animated.View style={{position: 'absolute',
                   left: 0,
@@ -39,12 +51,24 @@ export default class ProfileScreen extends Component {
 
         <View>
           <View style={styles.body}>
-            <View style={styles.buttonDivide} alignItems="center">
+            <View style={[styles.buttonDivide], {flexDirection:"row", justifyContent:"space-around", alignItems:"center"}} alignItems="center">
+              <Button 
+                style={styles.button}
+                onPress={() => {userData.avatar_picked = (userData.avatar_picked - 1) % 8; this.setState({user_profile : Math.abs((this.state.user_profile - 1) % 8)})}}
+                color="#90A4AE"
+                raised={true}
+                title="<---" />
               <Button 
                 style={styles.button}
                 color="#90A4AE"
                 raised={true}
                 title="Choose avatar" />
+              <Button 
+                style={styles.button}
+                color="#90A4AE"
+                onPress={() => {userData.avatar_picked = (userData.avatar_picked + 1) % 8; this.setState({user_profile : Math.abs((this.state.user_profile + 1) % 8)})}}
+                raised={true}
+                title="--->" />
             </View>
 
             <Divider style={styles.divider} />
