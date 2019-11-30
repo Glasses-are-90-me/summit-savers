@@ -18,26 +18,11 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <ImageBackground source={require('../assets/background/backgroundmountain.png')} style={{flex: 1, resizeMode: 'cover'}}>
       <View>
-      <Image
-            source={require('../assets/characters-and-sprites/eskimo_blue.png')}
-          />
-      <Text>NAME</Text>
-        <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-        <Text>Hello</Text>
-        
-      </ScrollView>
+      <View style={styles.profileContainer}>
+        <Image source={ require('../assets/images/robot-dev.png') }/>
+        <Text>NAME</Text>
+      </View>
+
       </View>
       
       </ImageBackground>
@@ -67,14 +52,12 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2280EB',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
+  profileContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
   contentContainer: {
     paddingTop: 30,
