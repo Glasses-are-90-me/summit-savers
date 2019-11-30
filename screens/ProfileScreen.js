@@ -4,7 +4,7 @@ import {
   Text,
   View,
   Image,
-  SafeAreaView,
+  ScrollView,
   Animated,
   Dimensions,
   TouchableOpacity
@@ -16,9 +16,8 @@ import {
 
 export default class ProfileScreen extends Component {
   render() {
-
     return (
-      <SafeAreaView>
+      <ScrollView>
         <View>
           <View style={styles.header}>
             <View style={styles.headerContent}>
@@ -112,9 +111,11 @@ export default class ProfileScreen extends Component {
                  <Image style={{width:65, height:65}} source={require('../assets/images/icons8-penguin-96.png')}/>
               </TouchableOpacity>
             </View>
+            <Divider style={styles.divider} />
+            <Text style={styles.goal}>Start date: 14th June 2019</Text>
           </View>
         </View>
-      </SafeAreaView>
+      </ScrollView>
     );
   }
 }
