@@ -1,5 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, { useEffect, useState, useRef } from 'react';
+import {AsyncStorage} from 'react-native';
+import { avatarDB, userData } from '../constants/Databases'
 
 import {
   Image,
@@ -77,16 +79,16 @@ export default function HomeScreen() {
       </View>
       <View style={{display:'flex', height:'100%'}}>
         <View style={{flex:1}}></View>{/*Spacer for mountain*/}
-        <View style={{flex:3, }}>
-           <View style={{flex:2, }}>
+        <View style={{flex:3,alignItems:'center'}}>
+           <View style={{flex:2,backgroundColor:"#0FF8", width:0}}>
              <View style={{
               transform: [
                 {rotate: '240deg'}
               ],
               height: 10,
-              left: '52%',
-              top: '35%',
-              width: '26%',
+              left: 15,
+              top: '40%',
+              width: 100,
               backgroundColor: 'white',
               borderRadius: 5
              }}>
@@ -98,15 +100,15 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: 0,}}/>
              </View>
            </View>
-           <View style={{flex:3}}>
+           <View style={{flex:3, width:0}}>
              <View style={{
               transform: [
                 {rotate: '320deg'}
               ],
               height: 10,
-              left: '29%',
-              top: '44%',
-              width: '48%',
+              left: -70,
+              top: 63,
+              width: 180,
               backgroundColor: 'white',
               borderRadius: 5
              }}>
@@ -118,21 +120,26 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: widthBAR,}}/>
 
              </View>
-             <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
+             <Image source={ require('../assets/characters-and-sprites/redflag.png')}
                style={{position: 'absolute',
-                   left: '65%',
-                   top: '-110%',
+                   left: 20,
+                   top: -160,
+                   }}/>
+             <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+               style={{position: 'absolute',
+                   left: 70,
+                   top: -72,
                    }}/>
            </View>
-           <View style={{flex:5, }}>
+           <View style={{flex:5, width:0}}>
             <View style={{
               transform: [
                 {rotate: '220deg'}
               ],
               height: 10,
-              left: '28%',
-              width: '50%',
-              top: '34%',
+              left: -73,
+              width: 200,
+              top: 72,
               backgroundColor: 'white',
               borderRadius: 5
              }}>
@@ -144,15 +151,15 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: '100%',}}/>
              </View>
            </View>
-           <View style={{flex:5, }}>
+           <View style={{flex:5, width:0}}>
             <View style={{
               transform: [
                 {rotate: '320deg'}
               ],
               height: 10,
-              left: '6%',
-              width: '75%',
-              top: '18%',
+              left: -165,
+              width: 300,
+              top: 50,
               backgroundColor: 'white',
               borderRadius: 5
              }}>
@@ -164,21 +171,17 @@ export default function HomeScreen() {
                  backgroundColor: "#8BED4F", width: '100%',}}/>
              </View>
            </View>
-           <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+           <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
-                 left: '30%',
-                 top: '14%',
+                 left: 135,
+                 top: 113,
                  }}/>
-            <Image source={ require('../assets/characters-and-sprites/redflag.png')}
+            <Image source={ require('../assets/characters-and-sprites/greenflags.png')}
              style={{position: 'absolute',
-                 left: '64%',
-                 top: '36%',
+                 left: 280,
+                 top: 238,
                  }}/>
-            <Image source={ require('../assets/characters-and-sprites/shit-hut.png')}
-             style={{position: 'absolute',
-                 left: '5%',
-                 top: '80%',
-                 }}/>
+            
          </View>
       </View>
       </ImageBackground>
