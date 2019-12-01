@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -20,8 +20,18 @@ export default class ProfileScreen extends Component {
     super(props);
     this.state = {
       user_profile: userData.avatar_picked,
-    }
+    }    
+
   }
+  componentDidMount(){
+      // Toggle the state every second
+      setInterval(() => (
+        this.setState(previousState => (
+          { isShowingText: !previousState.isShowingText }
+        ))
+      ), 1000);
+    }
+  state = { isShowingText: true };
   render() {
     return (
       <ScrollView>
@@ -37,9 +47,9 @@ export default class ProfileScreen extends Component {
                   right: 0,
                   top: 0,
                   bottom: 0,
-                  backgroundColor: "#8BED4F", width: '70%'}}/>
+                  backgroundColor: "#8BED4F", width: userData.cash+'%'}}/>
               </View>
-              <Text style={styles.userInfo}>Progress: 70%</Text>
+              <Text style={styles.userInfo}>Progress: {userData.cash}%</Text>
             </View>
           </View>
         </View>
